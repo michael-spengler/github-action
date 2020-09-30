@@ -1,16 +1,38 @@
-name: 'Node 12 Template Action'
-description: 'Get started with Node actions'
-author: 'GitHub'
-inputs: 
+name: "CLA assistant lite"
+description: "An action to handle the Contributor License Agreement"
+author: "SAP"
+branding:
+  icon: "award"
+  color: blue
+inputs:
   path-to-signatures:
-    description: 'Give a path for storing CLAs in a json file '
-    default: './signatures/cla.json'
+    description: "Give a path for storing CLAs in a json file "
+    default: "./signatures/cla.json"
   branch:
-    description: 'select a branch where all the CLAs are stored'
-    default: 'master'
-  blockchain-storage-flag:
-    description: 'Optional functionality to store all the blockchain signatures in the ethirium blockchain as a smart contract'
-    default: false
+    description: "provide a branch where all the CLAs are stored"
+    default: "master"
+  empty-commit-flag:
+    description: "GitHub Actions will add empty commit whenever the user signs the CLA (optional)"
+    default: true
+  allowlist:
+    description: "users in the allow list don't have to sign the CLA document"
+    default: ""
+  remote-repository-name:
+    description: "provide the remote repository name where all the signatures should be stored"
+  remote-organization-name:
+    description: "provide the remote organization name where all the signatures should be stored"
+  path-to-cla-document:
+    description: "Fully qualified web link to cla document Example: https://github.com/cla-assistant/github-action/blob/master/SAPCLA.md"
+  signed-commit-message:
+    description: "Commit message when a new contributor signs the CLA in a PR"
+  signed-empty-commit-message:
+    description: "Commit message when a new contributor signs the CLA (empty)"
+  create-file-commit-message:
+    description: "Commit message when a new file is created"
+  custom-notsigned-prcomment:
+    description: "Introductory message to ask new contributors to sign"
+  custom-allsigned-prcomment:
+    description: "pull request comment when everyone has signed, defaults to **CLA Assistant Lite** All Contributors have signed the CLA."
 runs:
-  using: 'node12'
-  main: 'lib/main.js'
+  using: "node12"
+  main: "lib/main.js"

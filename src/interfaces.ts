@@ -1,7 +1,7 @@
 export interface CommitterMap {
-    signed?: CommittersDetails[],
-    notSigned?: CommittersDetails[],
-    unknown?: CommittersDetails[]
+    signed: CommittersDetails[],
+    notSigned: CommittersDetails[],
+    unknown: CommittersDetails[]
 }
 
 export interface ReactedCommitterMap {
@@ -39,4 +39,9 @@ export interface CommittersCommentDetails {
     body: string,
     created_at: string,
     updated_at: string
+}
+
+export interface ClafileContentAndSha {
+    claFileContent: any,
+    sha: string
 }
